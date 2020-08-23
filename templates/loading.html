@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loading</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" href="../static/main.ico"/>
+    <link rel="icon" href="../static/main.ico"/>
+
+    <!-- 도현 폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        * {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
+        p {
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1.5;
+            height: 130px;
+            padding: 0 10px;
+        }
+
+        tt {
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1.5;
+            height: 130px;
+            padding: 0 10px;
+        }
+
+        #test-list {
+            width: auto;
+            margin: 20px auto;
+            padding: 20px;
+            border: #FF026C;
+            border-radius: 5px;
+        }
+
+        ul.fadeout tt:nth-child(1) {
+            -webkit-animation: fadeOut 1s linear forwards;
+        }
+
+        ul.fadeout tt:nth-child(2) {
+            -webkit-animation: fadeOut 1s linear 2s forwards;
+        }
+
+        ul.fadeout tt:nth-child(3) {
+            -webkit-animation: fadeOut 1s linear 4s forwards;
+        }
+
+        ul.fadeout tt:nth-child(1) {
+            -webkit-animation: fadeOut 1s linear forwards;
+        }
+
+        @-webkit-keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="test-list">
+    <img src="../static/loading.gif" style="max-width: 100%;" alt="Loading">
+    <ul class="fadeout">
+        <p>29금 능력치 분석중<tt>.</tt><tt>.</tt><tt>.</tt></p>
+    </ul>
+</div>
+<script>
+    var Request = function () {
+        this.getParameter = function (name) {
+            var rtnval = '';
+            var nowAddress = unescape(location.href);
+            var parameters = (nowAddress.slice(nowAddress.indexOf('?') + 1,
+                nowAddress.length)).split('&');
+            for (var i = 0; i < parameters.length; i++) {
+                var varName = parameters[i].split('=')[0];
+                if (varName.toUpperCase() == name.toUpperCase()) {
+                    rtnval = parameters[i].split('=')[1];
+                    break;
+                }
+            }
+            return rtnval;
+        }
+    }
+    var request = new Request();
+    var paramValue = request.getParameter('type');
+
+    setTimeout(function () {
+        location.href = "result/" + paramValue;
+    }, 6000);
+</script>
+</body>
+</html>

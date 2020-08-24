@@ -22,7 +22,6 @@
             font-weight: 800;
             line-height: 1.5;
             height: 130px;
-            padding: 0 10px;
         }
 
         tt {
@@ -34,14 +33,19 @@
         }
 
         #test-list {
-            width: 100%;
-            margin: 20px auto;
-            padding: 20px;
+            width: auto;
+            margin: 20px 0px;
+            padding: 10px;
             border: #FF026C;
             border-radius: 5px;
         }
 
-        ul.fadeout tt:nth-child(1) {
+        ul{
+            padding-inline-start: 0px;
+        }
+
+
+        ul.fadeout tt:nth-child(3) {
             -webkit-animation: fadeOut 1s linear forwards;
         }
 
@@ -49,11 +53,11 @@
             -webkit-animation: fadeOut 1s linear 2s forwards;
         }
 
-        ul.fadeout tt:nth-child(3) {
+        ul.fadeout tt:nth-child(1) {
             -webkit-animation: fadeOut 1s linear 4s forwards;
         }
 
-        ul.fadeout tt:nth-child(1) {
+        ul.fadeout tt:nth-child(3) {
             -webkit-animation: fadeOut 1s linear forwards;
         }
 
@@ -71,7 +75,9 @@
 <div id="test-list">
     <div style="text-align: center;">
         <img src="../static/loading.gif" style="max-width: 100%;" alt="Loading">
-        <ul class="fadeout">
+    </div>
+    <div style="text-align: center;">
+        <ul class="fadeout" >
             <p>29금 능력치 분석중<tt>.</tt><tt>.</tt><tt>.</tt></p>
         </ul>
     </div>
@@ -97,7 +103,7 @@
     var paramValue = request.getParameter('type');
 
     setTimeout(function () {
-        {#location.href = "result/" + paramValue;#}
+        location.href = "result/" + paramValue;
     }, 6000);
 </script>
 </body>

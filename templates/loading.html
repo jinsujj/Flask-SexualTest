@@ -34,7 +34,7 @@
         }
 
         #test-list {
-            width: auto;
+            width: 100%;
             margin: 20px auto;
             padding: 20px;
             border: #FF026C;
@@ -69,10 +69,12 @@
 </head>
 <body>
 <div id="test-list">
-    <img src="../static/loading.gif" style="max-width: 100%;" alt="Loading">
-    <ul class="fadeout">
-        <p>29금 능력치 분석중<tt>.</tt><tt>.</tt><tt>.</tt></p>
-    </ul>
+    <div style="text-align: center;">
+        <img src="../static/loading.gif" style="max-width: 100%;" alt="Loading">
+        <ul class="fadeout">
+            <p>29금 능력치 분석중<tt>.</tt><tt>.</tt><tt>.</tt></p>
+        </ul>
+    </div>
 </div>
 <script>
     var Request = function () {
@@ -95,7 +97,7 @@
     var paramValue = request.getParameter('type');
 
     setTimeout(function () {
-        location.href = "result/" + paramValue;
+        {#location.href = "result/" + paramValue;#}
     }, 6000);
 </script>
 </body>

@@ -38,6 +38,15 @@
             text-align: left;
         }
 
+        p1 {
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1.5;
+            height: 50px;
+            padding: 0 5px;
+            text-align: left;
+        }
+
         #test-list {
             width: 100%;
             margin: 20px auto;
@@ -77,6 +86,15 @@
             opacity: 1.0;
         }
 
+        select:hover {
+            background-color: rgb(235, 235, 235);
+        }
+
+        select:after {
+            opacity: 1.0;
+        }
+
+
         .page-state {
             width: 100%;
             text-align: right;
@@ -102,6 +120,11 @@
             transform: translateX(110%);
         }
 
+        .slide-left select {
+            animation: 700ms slide-left 600ms forwards;
+            transform: translateX(110%);
+        }
+
         @keyframes slide-left {
             to {
                 transform: translateX(0);
@@ -112,12 +135,73 @@
             width: 100%;
             height: 8px;
         }
+
+        select {
+            width: 100%;
+            color: rgba(0, 0, 0, 0.8);
+            background-color: rgb(247, 247, 247);
+            opacity: 1;
+            transform: translate(0px, 0px);
+            display: flex;
+            padding: 0 30px;
+            height: 100px;
+            font-size: 20px;
+            align-items: center;
+            border-radius: 15px;
+            margin-bottom: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            border-right: none;
+            border-left: none;
+            border-top: none;
+            border-bottom: none;
+            text-align: left;
+        }
+
     </style>
 
 </head>
 <body>
 <div id="test-list">
-    <div id="Q1" class="slide-left">
+    <div id="Q0" class="slide-left">
+        <h1 class="display-7" style="color:#FF026C">Qestion?</h1>
+        <p1>나이 는?</p1>
+        <select id="age">
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29" selected="selected">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+            <option value="32">32</option>
+            <option value="33">33</option>
+            <option value="34">34</option>
+            <option value="35">35</option>
+            <option value="36">36</option>
+            <option value="37">37</option>
+            <option value="38">38</option>
+            <option value="39">39</option>
+            <option value="40">40</option>
+        </select>
+        <p1>성별 은?</p1>
+        <div>
+            <button class="test-box" onclick="check('0a')" onmouseover="this.style.color='white';"
+                    onMouseout="this.style.color='black';">
+                남
+            </button>
+            <button class="test-box" onclick="check('0b')" onmouseover="this.style.color='white';"
+                    onMouseout="this.style.color='black';">
+                여
+            </button>
+        </div>
+    </div>
+    <div id="Q1" class="slide-left" style="display:none">
         <h1 class="display-7" style="color:#FF026C">Q1</h1>
         <p>처음 만나는 상대방에게 </br>마음을 뺏긴 나는</p>
         <div>
@@ -366,17 +450,34 @@
     function check(val) {
         let type = val.substr(-1);
         let num = val.substr(0, val.length - 1);
-        if (type == 'a')
-            arr[num] = 'A';
-        else
-            arr[num] = 'B';
+        let num2, now_id, next_id, ages;
 
-        let num2 = num * 1 + 1;
-        let now_id = 'Q' + num;
-        let next_id = 'Q' + num2;
+        //Intro 성별 입력
+        if (num == 0) {
+            if (type == 'a')
+                arr[num] = 'M';
+            else
+                arr[num] = 'F';
+
+            num2 = 1;
+        }
+        //문항 입력
+        else {
+            if (type == 'a')
+                arr[num] = 'A';
+            else
+                arr[num] = 'B';
+
+            num2 = num * 1 + 1;
+        }
+
+        now_id = 'Q' + num;
+        next_id = 'Q' + num2;
 
         //마지막 문항
         if (next_id == 'Q13') {
+             ages = $('#age').val();
+             arr[13] = ages;
             $.ajax({
                 type: "POST",
                 url: "/api/result",

@@ -58,24 +58,60 @@ def result_ENTP():
 def get_result():
     # 1. 클라이언트가 전달한 name_give를 name_receive 변수에 넣습니다.
     array = request.form.getlist('res[]')
+    q1 = ""
+    q2 = ""
+    q3 = ""
+    q4 = ""
+    q5 = ""
+    q6 = ""
+    q7 = ""
+    q8 = ""
+    q9 = ""
+    q10 = ""
+    q11 = ""
+    q12 = ""
 
     print(array)
     cnt_a = 0
     cnt_b = 0
     result = ""
 
-    # 구체적인 로직으로 변경해야해
     for index, value in enumerate(array):
         if value == 'A':  # a 선택 개수
             cnt_a += 1
         elif value == 'B':  # b 선택 개수
             cnt_b += 1
+
+    # 구체적인 로직으로 변경해야해
+    for index, value in enumerate(array):
+        if index == 1:
+            q1 = value
+        elif index == 2:
+            q2 = value
+        elif index == 3:
+            q3 = value
+        elif index == 4:
+            q4 = value
+        elif index == 5:
+            q5 = value
+        elif index == 6:
+            q6 = value
+        elif index == 7:
+            q7 = value
+        elif index == 8:
+            q8 = value
+        elif index == 9:
+            q9 = value
+        elif index == 10:
+            q10 = value
+        elif index == 11:
+            q11 = value
+        elif index == 12:
+            q12 = value
         elif value == 'M' or value == 'F':  # 성별
             sex = value
         else:  # 나이
             age = value
-
-    print(cnt_a, cnt_b)
 
     if cnt_a <= 2:
         result = 'ISTJ'
@@ -93,6 +129,18 @@ def get_result():
     doc = {
         'sex': sex,
         'age': age,
+        'q1': q1,
+        'q2': q2,
+        'q3': q3,
+        'q4': q4,
+        'q5': q5,
+        'q6': q6,
+        'q7': q7,
+        'q8': q8,
+        'q9': q9,
+        'q10': q10,
+        'q11': q11,
+        'q12': q12,
         'result': result,
     }
     db.user.insert_one(doc)

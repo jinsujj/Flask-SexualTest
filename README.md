@@ -8,16 +8,17 @@
 - MongoDB 로 응답한 문항 및 정보 Flask 서버로 전송 
 - Flask 서버에서 각 조건에 따른 결과 page return 
 
-## 사용 How To Use
-- 사용하고 싶도록 유용한 몇 가지 예를 적습니다. 코드 블록과 스크린샷 포함.
-- (wiki가 있을 경우) _더 많은 예시와 사용 예제는 [Wiki](wiki)를 참고하세요._
-![](header.png)
+## 향후 개선 
+- 디자인요소 및 결과 상세 페이지 작성 
+- DB 적재된 data 통계치 제공 
+- 공유하기 기능 
 
 ## Contributing
 *(프로젝트 기여자가 있을 경우 적습니다)*
 - Thanks to @기여자이름
 
 ## Reference
+
 
 ## Links
 

@@ -51,7 +51,7 @@
             width: 100%;
             margin: 20px auto;
             padding: 20px;
-            border: #FF026C;
+            border: #CC00CC;
             border-radius: 5px;
             animation-direction: reverse;
         }
@@ -64,7 +64,7 @@
             transform: translate(0px, 0px);
             display: flex;
             padding: 0 30px;
-            height: 100px;
+            height: 90px;
             font-size: 20px;
             align-items: center;
             border-radius: 15px;
@@ -79,7 +79,7 @@
         }
 
         .test-box:hover {
-            background-color: #FF026C;
+            background-color: #CC00CC;
         }
 
         .test-box:hover:after {
@@ -116,8 +116,11 @@
         }
 
         .slide-left button {
-            animation: 700ms slide-left 600ms forwards;
-            transform: translateX(110%);
+            animation: fadein 2s;
+        }
+
+        .slide-left button2 {
+            animation: fadein2 2s;
         }
 
         .slide-left select {
@@ -128,6 +131,105 @@
         @keyframes slide-left {
             to {
                 transform: translateX(0);
+            }
+        }
+
+
+        @-moz-keyframes fadein { /* Firefox */
+            0% {
+                opacity: 0;
+            }
+            40% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fadein { /* Safari and Chrome */
+            0% {
+                opacity: 0;
+            }
+            40% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-o-keyframes fadein { /* Opera */
+            0% {
+                opacity: 0;
+            }
+            40% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+
+        @keyframes fadein {
+            0% {
+                opacity: 0;
+            }
+            40% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-moz-keyframes fadein2 { /* Firefox */
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fadein2 { /* Safari and Chrome */
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-o-keyframes fadein2 { /* Opera */
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+
+        @keyframes fadein2 {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
             }
         }
 
@@ -144,7 +246,7 @@
             transform: translate(0px, 0px);
             display: flex;
             padding: 0 30px;
-            height: 100px;
+            height: 80px;
             font-size: 20px;
             align-items: center;
             border-radius: 15px;
@@ -163,31 +265,13 @@
 </head>
 <body>
 <div id="test-list">
-    <div id="Q0" class="slide-left">
-        <h1 class="display-7" style="color:#FF026C">Qestion?</h1>
+    <div id="Q0">
+        <h1 class="display-7" style="color:#CC00CC">Qestion?</h1>
         <p1>나이 는?</p1>
-        <select id="age">
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-            <option value="23">23</option>
-            <option value="24">24</option>
-            <option value="25">25</option>
-            <option value="26">26</option>
-            <option value="27">27</option>
-            <option value="28">28</option>
-            <option value="29" selected="selected">29</option>
-            <option value="30">30</option>
-            <option value="31">31</option>
-            <option value="32">32</option>
-            <option value="33">33</option>
-            <option value="34">34</option>
-            <option value="35">35</option>
-            <option value="36">36</option>
-            <option value="37">37</option>
-            <option value="38">38</option>
-            <option value="39">39</option>
-            <option value="40">40</option>
+        <select id="age" class="slide-left">
+            <option value="20" selected="selected">열정 가득 뜨거운 20대</option>
+            <option value="30">담백하고 진정성 있는 30대</option>
+            <option value="40">여유 가득 안정적인 40대</option>
         </select>
         <p1>성별 은?</p1>
         <div>
@@ -195,24 +279,24 @@
                     onMouseout="this.style.color='black';">
                 남
             </button>
-            <button class="test-box" onclick="check('0b')" onmouseover="this.style.color='white';"
+            <button2 class="test-box" onclick="check('0b')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 여
-            </button>
+            </button2>
         </div>
     </div>
     <div id="Q1" class="slide-left" style="display:none">
-        <h1 class="display-7" style="color:#FF026C">Q1</h1>
+        <h1 class="display-7" style="color:#CC00CC">Q1</h1>
         <p>처음 만나는 상대방에게 </br>마음을 뺏긴 나는</p>
         <div>
             <button class="test-box" onclick="check('1a')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 신중하게 다음 데이트를 기약한다
             </button>
-            <button class="test-box" onclick="check('1b')" onmouseover="this.style.color='white';"
+            <button2 class="test-box" onclick="check('1b')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 함께 더 알아가며 밤을 보내고 싶다고 표현한다
-            </button>
+            </button2>
         </div>
         <br><br>
         <div class="page-state">1/12</div>
@@ -222,17 +306,17 @@
         </div>
     </div>
     <div id="Q2" class="slide-left" style="display:none">
-        <h1 class="display-7" style="color:#FF026C">Q2</h1>
+        <h1 class="display-7" style="color:#CC00CC">Q2</h1>
         <p>연인의 자취집에</br>처음 오게 된 나는</p>
         <div>
             <button class="test-box" onclick="check('2a')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 피곤하니 일단 눕는다
             </button>
-            <button class="test-box" onclick="check('2b')" onmouseover="this.style.color='white';"
+            <button2 class="test-box" onclick="check('2b')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 화장실을 잠깐 쓴다하고 내 상태를 점검한다
-            </button>
+            </button2>
         </div>
         <br><br>
         <div class="page-state">2/12</div>
@@ -242,17 +326,17 @@
         </div>
     </div>
     <div id="Q3" class="slide-left" style="display:none">
-        <h1 class="display-7" style="color:#ff026c">Q3</h1>
+        <h1 class="display-7" style="color:#CC00CC">Q3</h1>
         <p>관계를 하며 자세를</br>바꾸고 싶을때 나는</p>
         <div>
             <button class="test-box" onclick="check('3a')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 바로 자세를 바꾼다
             </button>
-            <button class="test-box" onclick="check('3b')" onmouseover="this.style.color='white';"
+            <button2 class="test-box" onclick="check('3b')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 연인도 지친것 같으면 자세를 바꾼다
-            </button>
+            </button2>
         </div>
         <br><br>
         <div class="page-state">3/12</div>
@@ -262,17 +346,17 @@
         </div>
     </div>
     <div id="Q4" class="slide-left" style="display:none">
-        <h1 class="display-7" style="color:#FF026C">Q4</h1>
+        <h1 class="display-7" style="color:#CC00CC">Q4</h1>
         <p>연인의 신음 소리를</br>들으며 나는</p>
         <div>
             <button class="test-box" onclick="check('4a')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 어느 정도 흥분했는지 감을 잡고 공략한다
             </button>
-            <button class="test-box" onclick="check('4b')" onmouseover="this.style.color='white';"
+            <button2 class="test-box" onclick="check('4b')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 흥분함을 느끼고 더 흥분한다
-            </button>
+            </button2>
         </div>
         <br><br>
         <div class="page-state">4/12</div>
@@ -282,17 +366,17 @@
         </div>
     </div>
     <div id="Q5" class="slide-left" style="display:none">
-        <h1 class="display-7" style="color:#FF026C">Q5</h1>
+        <h1 class="display-7" style="color:#CC00CC">Q5</h1>
         <p>연인과 방문한 섹스토이</br>샵에서 살갑게 말을 거는</br>직원에게 나는</p>
         <div>
             <button class="test-box" onclick="check('5a')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 신나서 이것 저것 물어본다
             </button>
-            <button class="test-box" onclick="check('5b')" onmouseover="this.style.color='white';"
+            <button2 class="test-box" onclick="check('5b')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 동공지진하며 연인의 그림자로 변신한다다
-            </button>
+            </button2>
         </div>
         <br><br>
         <div class="page-state">5/12</div>
@@ -302,17 +386,17 @@
         </div>
     </div>
     <div id="Q6" class="slide-left" style="display:none">
-        <h1 class="display-7" style="color:#FF026C">Q6</h1>
+        <h1 class="display-7" style="color:#CC00CC">Q6</h1>
         <p>바쁜 연인과</br>오랜만에 만났는데</br>바로 잠들어버렸을 때 나는</p>
         <div>
             <button class="test-box" onclick="check('6a')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 이불을 덮어주며 꼭 안아주고 내일 아침을 노린다
             </button>
-            <button class="test-box" onclick="check('6b')" onmouseover="this.style.color='white';"
+            <button2 class="test-box" onclick="check('6b')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 잠든 연인을 애무하며 흥분시켜 꺠우려 한다
-            </button>
+            </button2>
         </div>
         <br><br>
         <div class="page-state">6/12</div>
@@ -322,17 +406,17 @@
         </div>
     </div>
     <div id="Q7" class="slide-left" style="display:none">
-        <h1 class="display-7" style="color:#FF026C">Q7</h1>
+        <h1 class="display-7" style="color:#CC00CC">Q7</h1>
         <p>연인과 함께</br>근교 데이트하러 갈 때 나는</p>
         <div>
             <button class="test-box" onclick="check('7a')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 당일에 급하게 준비하며 가는길에 데이트 장소를 한번 찾아 본다
             </button>
-            <button class="test-box" onclick="check('7b')" onmouseover="this.style.color='white';"
+            <button2 class="test-box" onclick="check('7b')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 전날 의상, 속옷, 콘돔, 근처 숙소까지 미리 준비한다다
-            </button>
+            </button2>
         </div>
         <br><br>
         <div class="page-state">7/12</div>
@@ -342,17 +426,17 @@
         </div>
     </div>
     <div id="Q8" class="slide-left" style="display:none">
-        <h1 class="display-7" style="color:#FF026C">Q8</h1>
+        <h1 class="display-7" style="color:#CC00CC">Q8</h1>
         <p>나는 연인에게</br>불만을 말할때</p>
         <div>
             <button class="test-box" onclick="check('8a')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 제대로 이해할 수 있도록 직설적으로 얘기한다
             </button>
-            <button class="test-box" onclick="check('8b')" onmouseover="this.style.color='white';"
+            <button2 class="test-box" onclick="check('8b')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 연인의 감정을 고려해 둘러서 얘기한다
-            </button>
+            </button2>
         </div>
         <br><br>
         <div class="page-state">8/12</div>
@@ -362,17 +446,17 @@
         </div>
     </div>
     <div id="Q9" class="slide-left" style="display:none">
-        <h1 class="display-7" style="color:#FF026C">Q9</h1>
+        <h1 class="display-7" style="color:#CC00CC">Q9</h1>
         <p>일년 넘게</br>자신만 사랑한 나</p>
         <div>
             <button class="test-box" onclick="check('9a')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 외롭지만 괜찮아 나가기 귀찮거든 집 최고!!
             </button>
-            <button class="test-box" onclick="check('9b')" onmouseover="this.style.color='white';"
+            <button2 class="test-box" onclick="check('9b')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 행복하다 친구들이랑도 즐거워! 괜찮아!!
-            </button>
+            </button2>
         </div>
         <br><br>
         <div class="page-state">9/12</div>
@@ -382,17 +466,17 @@
         </div>
     </div>
     <div id="Q10" class="slide-left" style="display:none">
-        <h1 class="display-7" style="color:#FF026C">Q10</h1>
+        <h1 class="display-7" style="color:#CC00CC">Q10</h1>
         <p>연인이</br>어떻게 해주는게 좋아?</br>라고 물어보면 나는</p>
         <div>
             <button class="test-box" onclick="check('10a')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 내가 원하는 방향성과 느낌을 얘기한다
             </button>
-            <button class="test-box" onclick="check('10b')" onmouseover="this.style.color='white';"
+            <button2 class="test-box" onclick="check('10b')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 잘할 수 있도록 구체적으로 어떻게 해주는 게 좋은지 얘기한다다
-            </button>
+            </button2>
         </div>
         <br><br>
         <div class="page-state">10/12</div>
@@ -402,17 +486,17 @@
         </div>
     </div>
     <div id="Q11" class="slide-left" style="display:none">
-        <h1 class="display-7" style="color:#FF026C">Q11</h1>
+        <h1 class="display-7" style="color:#CC00CC">Q11</h1>
         <p>연이이 옆에서 구속</br>플레이해 보는게 판타지</br>라고 얘기했을 때 나는</p>
         <div>
             <button class="test-box" onclick="check('11a')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 괜찮은 로프를 찾아보고 매듭법을 공부해 다음에 한다
             </button>
-            <button class="test-box" onclick="check('11b')" onmouseover="this.style.color='white';"
+            <button2 class="test-box" onclick="check('11b')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 옆의 수건으로 바로 실행한다
-            </button>
+            </button2>
         </div>
         <br><br>
         <div class="page-state">11/12</div>
@@ -422,17 +506,17 @@
         </div>
     </div>
     <div id="Q12" class="slide-left" style="display:none">
-        <h1 class="display-7" style="color:#FF026C">Q12</h1>
+        <h1 class="display-7" style="color:#CC00CC">Q12</h1>
         <p>세상이 내일 멸망한다면</br>오늘 밤 연인과 나는</p>
         <div>
             <button class="test-box" onclick="check('12a')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 다시는 못해볼 새로운 스타일로 밤을 불태운다
             </button>
-            <button class="test-box" onclick="check('12b')" onmouseover="this.style.color='white';"
+            <button2 class="test-box" onclick="check('12b')" onmouseover="this.style.color='white';"
                     onMouseout="this.style.color='black';">
                 가장 익숙하고 친근한 스타일로 밤을 불태운다
-            </button>
+            </button2>
         </div>
         <br><br>
         <div class="page-state">12/12</div>
@@ -476,8 +560,8 @@
 
         //마지막 문항
         if (next_id == 'Q13') {
-             ages = $('#age').val();
-             arr[13] = ages;
+            ages = $('#age').val();
+            arr[13] = ages;
             $.ajax({
                 type: "POST",
                 url: "/api/result",

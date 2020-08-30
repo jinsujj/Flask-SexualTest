@@ -4,28 +4,70 @@
     <meta charset="UTF-8">
     <title>ENTP</title>
 
+    <link rel="shortcut icon" href="../static/main.ico"/>
+    <link rel="icon" href="../static/main.ico"/>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- 라인 공유하기 -->
+    <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async"
+            defer="defer"></script>
+
+    <!-- 카톡 공유하기 -->
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <script type="text/javascript" src="../static/bootstrap-4.5.2-dist/js/bootstrap.js"></script>
+    <link type="text/css" rel="stylesheet" href="../static/bootstrap-4.5.2-dist/css/bootstrap.css"/>
+
+    <!-- 도현 폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
     <style type="text/css">
         * {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         }
 
         p {
-            font-size: 28px;
-            font-weight: 800;
-            line-height: 1.5;
-            height: 130px;
-            padding: 0 10px;
+            position: relative;
+            text-align: left;
+            margin-top: 5px;
+            font-size: 15px;
+            line-height: 20px;
+            overflow: hidden;
+            color: rgba(0, 0, 0, 0.6);
+            letter-spacing: -0.8px;
+            word-break: break-all;
         }
 
         #test-list {
             width: 100%;
-            margin: 20px auto;
-            padding: 50px;
+            margin: 10px auto;
+            padding: 20px;
             border: #FF026C;
         }
 
+        #answer-box {
+            position: relative;
+            text-align: left;
+            margin-top: 5px;
+            font-size: 15px;
+            line-height: 20px;
+            overflow: hidden;
+            color: rgba(0, 0, 0, 0.6);
+            letter-spacing: -0.8px;
+            word-break: break-all;
+        }
+
         .font-o {
-            margin-top: 35px;
+            margin-top: 15px;
             font-weight: 500;
             color: rgba(0, 0, 0, 0.3);
             font-size: 18px;
@@ -38,7 +80,11 @@
             font-weight: bold;
             letter-spacing: -1.4px;
             text-align: center;
+        }
 
+        div.button {
+            display: flex;
+            justify-content: center;
         }
     </style>
 </head>
@@ -52,8 +98,54 @@
     </div>
     <br>
     <div style="text-align: center;">
-        <img src="../static/normal.png" style="max-width: 100%;"  alt="normal">
+        <img src="../static/normal.png" style="max-width: 100%;" alt="normal">
+        <br>
+        <div id="answer-box" style="">
+            <p>머리 속으론 충만한 변태이지만 실천하기엔 아직 쪼렙인 당신!
+                마음이 맞는 연인이 있다면 용기내 대화해보는 것도 나쁘지 않을 것 같아요.
+                부끄러워말고 당신의 상상을 애인과 공유해보세요! <br>
+                사실 당신은 애인과의 좀 더 행복한 관계를 꿈꾸는 사랑꾼이였습니다.
+            </p>
+        </div>
+    </div>
+    <div class="button">
+        <div class="line-it-button" data-lang="ko" data-type="share-b" data-ver="3"
+             data-url="http://54.180.103.20/"
+             data-color="default" data-size="large" data-count="false" style="display: none;">
+        </div>
+        <a id="kakao-link-btn" href="javascript:sendLink()"> <img
+                src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+                width="45px;" height="45px"/>
+        </a>
     </div>
 </div>
+<script>
+    // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('987990ec1ef64402e5de0b448cd94f08');
+
+    function sendLink() {
+        Kakao.Link.sendDefault({
+            objectType: 'feed',
+            content: {
+                title: '응큼도 테스트',
+                description: '29금 나의 응큼도는?',
+                imageUrl: 'https://i.ytimg.com/vi/g-y8cJV-x4k/hqdefault.jpg',
+                link: {
+                    mobileWebUrl: 'http://54.180.103.20/',
+                    webUrl: 'http://54.180.103.20/'
+                }
+            },
+            buttons: [
+                {
+                    title: '29금 나의 응큼도는?',
+                    link: {
+                        mobileWebUrl: 'http://54.180.103.20/',
+                        webUrl: 'http://54.180.103.20/'
+                    }
+                },
+            ]
+        });
+    }
+</script>
 </body>
 </html>

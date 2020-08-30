@@ -54,7 +54,19 @@
             border: #FF026C;
         }
 
-        #answer-box {
+        #again-box {
+            width: inherit;
+            padding: 15px;
+            border-radius: 25px;
+            background-color: #CC00CC;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+         #answer-box {
+            max-width: 400px;
             position: relative;
             text-align: left;
             margin-top: 5px;
@@ -118,6 +130,10 @@
                 width="45px;" height="45px"/>
         </a>
     </div>
+    <br>
+    <div id="again-box" onclick="go_intro()" >
+        테스트 다시해보기
+    </div>
 </div>
 <script>
     // // 사용할 앱의 JavaScript 키를 설정해 주세요.
@@ -145,6 +161,9 @@
                 },
             ]
         });
+    }
+    function go_intro(){
+        location.href = "/";
     }
 </script>
 </body>

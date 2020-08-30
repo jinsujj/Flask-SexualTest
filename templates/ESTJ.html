@@ -37,7 +37,6 @@
 
         p {
             position: relative;
-            text-align: left;
             margin-top: 5px;
             font-size: 15px;
             line-height: 20px;
@@ -54,7 +53,19 @@
             border: #FF026C;
         }
 
-        #answer-box {
+        #again-box {
+            width: inherit;
+            padding: 15px;
+            border-radius: 25px;
+            background-color: #CC00CC;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+         #answer-box {
+            max-width: 400px;
             position: relative;
             text-align: left;
             margin-top: 5px;
@@ -100,7 +111,7 @@
     <div style="text-align: center;">
         <img src="../static/guriguri.png" style="max-width: 100%;" alt="guri_guri">
         <br>
-        <div id="answer-box" style="">
+        <div id="answer-box" style="text-align: center;">
             <p>얌전해 보이는 당신. 하지만 친구들 사이에선 알려진 변태시군요.
                 아무것도 모르는척 순수해 보이는 모습이지만, 29금 토크가 본격적으로 시작되면
                 드리퍼 역할을 톡톡히 하는 당신. 사실 본인만 얌전해 보인다 생각하지 모두가 다
@@ -117,6 +128,10 @@
                 src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
                 width="45px;" height="45px"/>
         </a>
+    </div>
+    <br>
+    <div id="again-box" onclick="go_intro()" >
+        테스트 다시해보기
     </div>
 </div>
 <script>
@@ -145,6 +160,10 @@
                 },
             ]
         });
+    }
+
+    function go_intro(){
+        location.href = "/";
     }
 </script>
 </body>

@@ -51,10 +51,22 @@
             width: 100%;
             margin: 10px auto;
             padding: 20px;
-            border: #FF026C;
+            border: #CC00CC;
+        }
+
+        #again-box {
+            width: inherit;
+            padding: 15px;
+            border-radius: 25px;
+            background-color: #CC00CC;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
         }
 
         #answer-box {
+            max-width: 400px;
             position: relative;
             text-align: left;
             margin-top: 5px;
@@ -100,7 +112,7 @@
     <div style="text-align: center;">
         <img src="../static/normal.png" style="max-width: 100%;" alt="normal">
         <br>
-        <div id="answer-box" style="">
+        <div id="answer-box">
             <p>머리 속으론 충만한 변태이지만 실천하기엔 아직 쪼렙인 당신!
                 마음이 맞는 연인이 있다면 용기내 대화해보는 것도 나쁘지 않을 것 같아요.
                 부끄러워말고 당신의 상상을 애인과 공유해보세요! <br>
@@ -117,6 +129,10 @@
                 src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
                 width="45px;" height="45px"/>
         </a>
+    </div>
+    <br>
+    <div id="again-box" onclick="go_intro()" >
+        테스트 다시해보기
     </div>
 </div>
 <script>
@@ -145,6 +161,10 @@
                 },
             ]
         });
+    }
+
+    function go_intro(){
+        location.href = "/";
     }
 </script>
 </body>

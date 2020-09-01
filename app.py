@@ -5,9 +5,13 @@ from pymongo import MongoClient  # pymongo를 임포트 하기(패키지 인스�
 
 app = Flask(__name__)
 
-client = MongoClient('mongodb://test:test@54.180.103.20', 27017)
+client = MongoClient('mongodb://test:test!@54.180.103.20', 27017)
 db = client.user  # 'dbsparta'라는 이름의 db를 만들거나 사용합니다.
 
+
+@app.route('/robots.txt')
+def robots():
+    return render_template('robots.txt')
 
 @app.route('/')
 def home():
@@ -149,4 +153,4 @@ def get_result():
 
 
 if __name__ == '__main__':
-    app.run('127.0.0.1', port=5000, debug=True)
+    app.run('0.0.0.0', port=5000, debug=True)

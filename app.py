@@ -1,3 +1,5 @@
+import datetime
+
 from flask import Flask, render_template, jsonify, request
 import requests
 from bs4 import BeautifulSoup
@@ -5,13 +7,12 @@ from pymongo import MongoClient  # pymongo를 임포트 하기(패키지 인스�
 
 app = Flask(__name__)
 
-client = MongoClient('mongodb://test:test!@54.180.103.20', 27017)
-db = client.user  # 'dbsparta'라는 이름의 db를 만들거나 사용합니다.
 
 
 @app.route('/robots.txt')
 def robots():
     return render_template('robots.txt')
+
 
 @app.route('/')
 def home():
@@ -60,7 +61,8 @@ def result_ENTP():
 
 @app.route('/api/result', methods=['POST'])
 def get_result():
-    # 1. 클라이언트가 전달한 name_give를 name_receive 변수에 넣습니다.
+    dt = datetime.datetime.now()
+    date = str(dt)[:19]
     array = request.form.getlist('res[]')
     q1 = ""
     q2 = ""
@@ -75,6 +77,7 @@ def get_result():
     q11 = ""
     q12 = ""
 
+    print(date)
     print(array)
     cnt_a = 0
     cnt_b = 0
@@ -131,6 +134,7 @@ def get_result():
         result = 'ENTP'
 
     doc = {
+        'date': date,
         'sex': sex,
         'age': age,
         'q1': q1,
@@ -153,4 +157,4 @@ def get_result():
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True)
+    app.run('127.0.0.1', port=5000, debug=True)

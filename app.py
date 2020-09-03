@@ -61,6 +61,40 @@ def result_ENTP():
     return render_template('ENTP.html')
 
 
+@app.route('/api/list', methods=['GET'])
+def show_graph():
+    type = list(db.user.find({}, {'_id': False, 'result': 1}))
+    ISTJ = 0
+    ISFJ = 0
+    INTJ = 0
+    INFJ = 0
+    ESTJ = 0
+    ENTP = 0
+    print(type)
+    for index, value in enumerate(type):
+        if value['result'] == 'ISTJ':
+            ISTJ += 1
+        elif value['result'] == 'ISFJ':
+            ISFJ += 1
+        elif value['result'] == 'INTJ':
+            INTJ += 1
+        elif value['result'] == 'INFJ':
+            INFJ += 1
+        elif value['result'] == 'ESTJ':
+            ESTJ += 1
+        else:
+            ENTP += 1
+
+    print(ISTJ)
+    print(ISFJ)
+    print(INTJ)
+    print(INFJ)
+    print(ESTJ)
+    print(ENTP)
+    return jsonify(
+        {'result': 'success', 'ISTJ': ISTJ, 'ISFJ': ISFJ, 'INTJ': INTJ, 'INFJ': INFJ, 'ESTJ': ESTJ, 'ENTP': ENTP})
+
+
 @app.route('/api/result', methods=['POST'])
 def get_result():
     dt = datetime.datetime.now()
@@ -173,4 +207,4 @@ def get_result():
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True)
+    app.run('127.0.0.1', port=80, debug=True)

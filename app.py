@@ -7,6 +7,8 @@ from pymongo import MongoClient  # pymongo를 임포트 하기(패키지 인스�
 
 app = Flask(__name__)
 
+client = MongoClient('mongodb://jinsu:wlstncjs1!@54.180.103.20', 27017)
+db = client.log  # 'dbsparta'라는 이름의 db를 만들거나 사용합니다.
 
 
 @app.route('/robots.txt')
@@ -120,18 +122,32 @@ def get_result():
         else:  # 나이
             age = value
 
-    if cnt_a <= 2:
+    if q1 == 'A' and q3 == 'B' and q5 == 'B' and q6 == 'A':
         result = 'ISTJ'
-    elif cnt_a <= 4:
+    elif q4 == 'A' and q7 == 'A' and q8 == 'B' and q10 == 'B':
         result = 'ISFJ'
-    elif cnt_a <= 6:
-        result = 'INFJ'
-    elif cnt_a <= 8:
+    elif q1 == 'B' and q4 == 'B' and q7 == 'B' and q11 == 'B':
         result = 'INTJ'
-    elif cnt_a <= 10:
+    elif q5 == 'A' and q6 == 'B' and q7 == 'A' and q12 == 'A':
+        result = 'INFJ'
+    elif q1 == 'A' and q4 == 'B' and q8 == 'B' and q11 == 'A':
         result = 'ESTJ'
-    elif cnt_a <= 12:
+    elif q1 == 'A' and q4 == 'B' and q7 == 'B' and q8 == 'A':
         result = 'ENTP'
+
+    if result == "":
+        if cnt_a <= 2:
+            result = 'ISTJ'
+        elif cnt_a <= 4:
+            result = 'ISFJ'
+        elif cnt_a <= 6:
+            result = 'INFJ'
+        elif cnt_a <= 8:
+            result = 'INTJ'
+        elif cnt_a <= 10:
+            result = 'ESTJ'
+        elif cnt_a <= 12:
+            result = 'ENTP'
 
     doc = {
         'date': date,
@@ -157,4 +173,4 @@ def get_result():
 
 
 if __name__ == '__main__':
-    app.run('127.0.0.1', port=5000, debug=True)
+    app.run('0.0.0.0', port=5000, debug=True)

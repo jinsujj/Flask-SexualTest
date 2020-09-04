@@ -207,33 +207,91 @@
 
 
     function drawChart() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', '타입');
-        data.addColumn('number', '비중');
+        var data = new google.visualization.DataTable({
+            "cols": [{
+                "label": "Sexualism",
+                "type": "string"
+            }, {
+                "label": "Type",
+                "type": "number"
+            }],
+            "rows": [{
+                "c": [{
+                    "v": "단순한  변태"
+                }, {
+                    "v": ENTP
+                }]
+            }, {
+                "c": [{
+                    "v": "히익 상변태"
+                }, {
+                    "v": INFJ
+                }]
+            }, {
+                "c": [{
+                    "v": "고(자)라니"
+                }, {
+                    "v": ISTJ
+                }]
+            }, {
+                "c": [{
+                    "v": "쫌 아는 변태"
+                }, {
+                    "v": ISFJ
+                }]
+            }, {
+                "c": [{
+                    "v": "따먹는 변태"
+                }, {
+                    "v": ESTJ
+                }]
+            }, {
+                "c": [{
+                    "v": "음흉한  변태"
+                }, {
+                    "v": INTJ
+                }]
+            }]
+        });
 
-         data.addRows([
-            ['뭐야 단순한 변태', ENTP],
-            ['히익!!!!', INFJ],
-            ['내가 고라니', ISTJ],
-            ['훗 좀 변태', ISFJ],
-            ['낮져 밤이!!!', ESTJ],
-            ['리액션변태', INTJ]
-        ]);
 
-          var opt = {
-            'title': '변태 성향 분포',
-            'width': 400,
-            'height': 400,
-            pieSliceText: 'label',
-            legend: 'none',
+        var chart = new google.visualization.PieChart(
+            document.getElementById('myChart'));
+
+        var options = {
+            "title": '변태 성향 분포',
             titleTextStyle: {
-                fontSize: 14, // 12, 18 whatever you want (don't specify px)
-                bold: true,    // true or false
-                italic: false   // true of false
-            }
-        };
-        var chart = new google.visualization.PieChart(document.getElementById('myChart'));
-        chart.draw(data, opt);
+                color: '#CC00CC',
+                fontName: 'Arial',
+                fontSize: 14,
+            },
+            "colors": ["#E6CDB3", "#B5B5B6", "#4F8389", "#C6DFD7", "#DA957B", "#DDB1AD"],
+            "width": "415",
+            "height": "100%",
+            "chartArea": {
+                "width": "80%",
+                "height": "80%"
+            },
+            //"pieSliceText": "none",
+            "legend": {
+                "position": "labeled"
+            },
+            "tooltip": {
+                "trigger": "none",
+                "showColorCode": true,
+                "text": "percentage"
+            },
+            "animation": {
+                "startup": true,
+                "duration": 1000,
+                "easing": "inAndOut"
+            },
+            "pieStartAngle": -165,
+            "pieHole": 0.4
+        }
+
+        chart.draw(data, options);
+
     }
 </script>
 </body>

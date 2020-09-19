@@ -10,6 +10,10 @@ app = Flask(__name__)
 client = MongoClient('mongodb://jinsu:wlstncjs1!@54.180.103.20', 27017)
 db = client.log  # 'dbsparta'라는 이름의 db를 만들거나 사용합니다.
 
+@app.route('/sitemap.xml')
+def sitemap():
+    return render_template('sitemap.xml')
+
 
 @app.route('/robots.txt')
 def robots():
@@ -156,7 +160,7 @@ def get_result():
         else:  # 나이
             age = value
 
-    if q1 == 'A' and q3 == 'B' and q5 == 'B' and q6 == 'A':
+    if q1 == 'A' and q3 == 'B' and q5 == 'B':
         result = 'ISTJ'
     elif q4 == 'A' and q7 == 'A' and q8 == 'B' and q10 == 'B':
         result = 'ISFJ'
@@ -207,4 +211,4 @@ def get_result():
 
 
 if __name__ == '__main__':
-    app.run('127.0.0.1', port=80, debug=True)
+    app.run('0.0.0.0', port=5000, debug=True)

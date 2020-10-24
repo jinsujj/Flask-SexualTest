@@ -1,13 +1,13 @@
 import datetime
 
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, send_file
 import requests
 from bs4 import BeautifulSoup
 from pymongo import MongoClient  # pymongo를 임포트 하기(패키지 인스톨 먼저 해야겠죠?)
 
 app = Flask(__name__)
 
-client = MongoClient('mongodb://jinsu:wlstncjs1!@54.180.103.20', 27017)
+client = MongoClient('', 27017)
 db = client.log  # 'dbsparta'라는 이름의 db를 만들거나 사용합니다.
 
 @app.route('/sitemap.xml')
@@ -35,34 +35,64 @@ def loading():
     return render_template('loading.html')
 
 
+
 @app.route('/result/ISTJ')
 def result_ISTG():
     return render_template('ISTJ.html')
+
+@app.route('/img/ISTJ')
+def img_ISTJ():
+    return send_file('./static/goza.png')
+
 
 
 @app.route('/result/ISFJ')
 def result_ISFJ():
     return render_template('ISFJ.html')
 
+@app.route('/img/ISFJ')
+def img_ISFJ():
+    return send_file('./static/hut.png')
+
+
 
 @app.route('/result/INTJ')
 def result_INTJ():
     return render_template('INTJ.html')
+
+@app.route('/img/INTJ')
+def img_INTJ():
+    return send_file('./static/heeek.png')
+
 
 
 @app.route('/result/INFJ')
 def result_INFJ():
     return render_template('INFJ.html')
 
+@app.route('/img/INFJ')
+def img_INFJ():
+    return send_file('./static/hiiikkkkk.png')
+
+
 
 @app.route('/result/ESTJ')
 def result_ESTJ():
     return render_template('ESTJ.html')
 
+@app.route('/img/ESTJ')
+def img_ESTJ():
+    return send_file('./static/guriguri.png')
+
+
 
 @app.route('/result/ENTP')
 def result_ENTP():
     return render_template('ENTP.html')
+
+@app.route('/img/ENTP')
+def img_ENTP():
+    return send_file('./static/normal.png')
 
 
 @app.route('/api/list', methods=['GET'])

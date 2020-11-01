@@ -1,0 +1,58 @@
+<html>
+<head>
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <script type="text/javascript" src="../static/bootstrap-4.5.2-dist/js/bootstrap.js"></script>
+    <link type="text/css" rel="stylesheet" href="../static/bootstrap-4.5.2-dist/css/bootstrap.css"/>
+
+    <!-- 도현 폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+    <!-- google Chart -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawVisualization);
+
+        function drawVisualization() {
+            // Some raw data (not necessarily accurate)
+            $.ajax({
+                type: 'GET',
+                url: '/api/histogram',
+                data: {},
+                success: function (response) {
+                    console.log(response);
+                    var data = google.visualization.arrayToDataTable([
+                        ['날짜','건수'],
+                        [response['date7'], response['day7']],
+                        [response['date6'], response['day6']],
+                        [response['date5'], response['day5']],
+                        [response['date4'], response['day4']],
+                        [response['date3'], response['day3']],
+                        [response['date2'], response['day2']],
+                        [response['date1'], response['day1']]
+                    ]);
+                    var options = {
+                        title : '사용자 이용 횟수',
+                        vAxis: {title: '이용자 수'},
+                        hAxis: {title: '날짜'},
+                        seriesType: 'bars',
+                        series: {5: {type: 'line'}}
+                    };
+
+                    var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+                    chart.draw(data, options);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="chart_div" style="width: 900px; height: 500px;"></div>
+</body>
+</html>

@@ -7,7 +7,7 @@ from pymongo import MongoClient  # pymongo를 임포트 하기(패키지 인스�
 
 app = Flask(__name__)
 
-client = MongoClient('', 27017)
+client = MongoClient('mongodb://, 27017)
 db = client.log  # 'dbsparta'라는 이름의 db를 만들거나 사용합니다.
 
 @app.route('/sitemap.xml')
@@ -93,6 +93,58 @@ def result_ENTP():
 @app.route('/img/ENTP')
 def img_ENTP():
     return send_file('./static/normal.png')
+
+
+@app.route('/board')
+def result_board():
+    return render_template('board.html')
+
+
+@app.route('/api/histogram', methods=['GET'])
+def show_histogram():
+    type = list(db.user.find({},{"_id":0 , "date":1,"sex":1}))
+    print(type)
+
+    day1 = 0
+    day2 = 0
+    day3 = 0
+    day4 = 0
+    day5 = 0
+    day6 = 0
+    day7 = 0
+    other = 0
+
+    today = datetime.date.today()
+    day_1 = (datetime.date.today() - datetime.timedelta(1)).strftime("%Y-%m-%d")
+    day_2 = (datetime.date.today() - datetime.timedelta(2)).strftime("%Y-%m-%d")
+    day_3 = (datetime.date.today() - datetime.timedelta(3)).strftime("%Y-%m-%d")
+    day_4 = (datetime.date.today() - datetime.timedelta(4)).strftime("%Y-%m-%d")
+    day_5 = (datetime.date.today() - datetime.timedelta(5)).strftime("%Y-%m-%d")
+    day_6 = (datetime.date.today() - datetime.timedelta(6)).strftime("%Y-%m-%d")
+    day_7 = (datetime.date.today() - datetime.timedelta(7)).strftime("%Y-%m-%d")
+
+    for index, value in enumerate(type):
+        if value['date'][0:10] > day_1:
+            day1 += 1
+        elif value['date'][0:10] > day_2 and value['date'][0:10] <= day_1:
+            day2 += 1
+        elif value['date'][0:10] > day_3 and value['date'][0:10] <= day_2:
+            day3 += 1
+        elif value['date'][0:10] > day_4 and value['date'][0:10] <= day_3:
+            day4 += 1
+        elif value['date'][0:10] > day_5 and value['date'][0:10] <= day_4:
+            day5 += 1
+        elif value['date'][0:10] > day_6 and value['date'][0:10] <= day_5:
+            day6 += 1
+        elif value['date'][0:10] > day_7 and value['date'][0:10] <= day_6:
+            day7 += 1
+        else:
+            other += 1
+
+    return jsonify(
+        {'result': 'success', 'day1': day1, 'day2': day2, 'day3': day3, 'day4': day4, 'day5': day5, 'day6': day6,'day7': day7, 'other' : other,
+         'date1': day_1 , 'date2': day_2, 'date3': day_3, 'date4': day_4, 'date5' :day_5, 'date6' :day_6, 'date7': day_7})
+
 
 
 @app.route('/api/list', methods=['GET'])

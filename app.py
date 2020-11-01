@@ -7,7 +7,7 @@ from pymongo import MongoClient  # pymongo를 임포트 하기(패키지 인스�
 
 app = Flask(__name__)
 
-client = MongoClient('mongodb://, 27017)
+client = MongoClient('mongodb://jinsu:wlstncjs1!@54.180.103.20', 27017)
 db = client.log  # 'dbsparta'라는 이름의 db를 만들거나 사용합니다.
 
 @app.route('/sitemap.xml')
@@ -293,4 +293,4 @@ def get_result():
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True)
+    app.run('127.0.0.1', port=5000, debug=True)

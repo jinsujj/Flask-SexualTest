@@ -1,5 +1,5 @@
 > 프로젝트 간략 소개 한 문장 
-- 웹사이트 url : http://54.180.103.20/
+- 웹사이트 url : http://mysexual-29.shop/
 - 29금 심리 테스트를 목적으로 제작해본 토이 프로젝트 입니다.
 - HTML, CSS, JS, python(Flask), mongoDB , AWS
 

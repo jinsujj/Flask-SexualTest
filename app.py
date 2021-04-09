@@ -7,7 +7,7 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
-client = MongoClient('mongodb://jinsu:wlstncjs1!@54.180.103.20', 27017)
+client = MongoClient('mongodb://', 27017)
 db = client.log
 
 @app.route('/sitemap.xml')

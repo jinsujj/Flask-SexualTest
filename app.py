@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import datetime
 
 from flask import Flask, render_template, jsonify, request, send_file

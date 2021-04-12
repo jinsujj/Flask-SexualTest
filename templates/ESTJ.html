@@ -67,7 +67,7 @@
     <br>
     <div class="button">
         <div class="line-it-button" data-lang="ko" data-type="share-b" data-ver="3"
-             data-url="http://54.180.103.20/"
+             data-url="http://mysexual-29.shop/"
              data-color="default" data-size="large" data-count="false" style="display: none;">
         </div>
         <a id="kakao-link-btn" href="javascript:sendLink()"> <img
@@ -93,18 +93,18 @@
             content: {
                 title: '29금 나의 응큼도는?',
                 description: '욕망 변태',
-                imageUrl: 'http://mysexual-29.shop/img/ESTJ',
+                imageUrl: 'http://mysexual-29.shop/static/ESTJ.png',
                 link: {
-                    mobileWebUrl: 'http://54.180.103.20/',
-                    webUrl: 'http://54.180.103.20/'
+                    mobileWebUrl: 'http://mysexual-29.shop/result/ESTJ',
+                    webUrl: 'http://mysexual-29.shop/result/ESTJ'
                 }
             },
             buttons: [
                 {
                     title: '29금 나의 응큼도는?',
                     link: {
-                        mobileWebUrl: 'http://54.180.103.20/',
-                        webUrl: 'http://54.180.103.20/'
+                        mobileWebUrl: 'http://mysexual-29.shop/result/ESTJ',
+                        webUrl: 'http://mysexual-29.shop/result/ESTJ'
                     }
                 },
             ]
@@ -123,19 +123,12 @@
             url: '/api/list',
             data: {},
             success: function (response) {
-
                 ISTJ += response['ISTJ'];
                 ISFJ += response['ISFJ'];
                 INTJ += response['INTJ'];
                 INFJ += response['INFJ'];
                 ESTJ += response['ESTJ'];
                 ENTP += response['ENTP'];
-                console.log(ISTJ);
-                console.log(ISFJ);
-                console.log(INTJ);
-                console.log(INFJ);
-                console.log(ESTJ);
-                console.log(ENTP);
             }
         });
     })
